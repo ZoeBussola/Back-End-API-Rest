@@ -1,0 +1,30 @@
+.navbar-dark.bg-dark{
+    padding: 15px 30px;
+}
+.nav-item{
+    padding: 5px 10px;
+    font-size: 20px;
+    color: white;
+}
+.nav-link{
+    color: white;
+}
+.nav-link:hover{
+    color: rgb(98, 98, 230);
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formSingIn{
+    width: 30vw;
+    margin: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.redistro{
+    align-self: center;
+    width: 20vw;
+}

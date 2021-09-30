@@ -1,0 +1,74 @@
+.navbar-dark.bg-dark{
+    padding: 15px 30px;
+}
+.nav-item{
+    padding: 5px 10px;
+    font-size: 20px;
+    color: white;
+}
+.nav-link{
+    color: white;
+}
+.nav-link:hover{
+    color: rgb(98, 98, 230);
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ContSelecc{
+    margin: 10vh;
+    padding: 3vw;
+background-color: rgba(189, 186, 186, 0.61);
+display: flex;
+flex-direction: column;
+align-content: center;
+}
+.ContBont{
+    display: flex;
+    justify-content: space-around;
+}
+.btn.btn-danger{
+    margin: 10px;
+    font-size: 25px;
+}
+
+.row.g-3{
+    width: 80vw;
+}
+.form-check{
+    margin: 10px;
+    margin-left: 50px;
+
+}
+.form-check-input{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.form-check-label {
+    margin-left: 15px;
+}
+.FormOdont{
+    background-color: rgba(189, 186, 186, 0.61);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.FormPacien{
+    background-color: rgba(189, 186, 186, 0.61);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.desp{
+    display: none;
+}
+.apare{
+    display: block;
+}
