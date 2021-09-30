@@ -1,0 +1,75 @@
+.navbar-dark.bg-dark{
+    padding: 15px 30px;
+}
+.nav-item{
+    padding: 5px 10px;
+    font-size: 20px;
+    color: white;
+}
+.nav-link{
+    color: white;
+}
+.nav-link:hover{
+    color: rgb(98, 98, 230);
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10vh 0;
+}
+.tablaturnos {
+    width: 90vw;
+    margin: 2vw 5vh 10vw 5vh;
+    padding: 3vw;
+    background-color: rgba(189, 186, 186, 0.61);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.tablaOdonto{
+    width: 90vw;
+    margin: 2vw 5vh 10vw 5vh;
+    padding: 3vw;
+    background-color: rgba(189, 186, 186, 0.61);
+}
+.tablaPacien{
+    width: 90vw;
+    margin: 2vw 5vh 10vw 5vh;
+    padding: 3vw;
+    background-color: rgba(189, 186, 186, 0.61);
+}
+
+.row {
+    justify-content: center;
+}
+
+.btn {
+    transition: none;
+    min-width: 95px;
+    margin: 3px;
+    max-height: 40px;
+}
+.h2, h2 {
+    font-size: 2rem;
+    align-self: flex-start;
+    margin-left: 10vw;
+}
+
+.formturno{
+    background-color:#e6fffa;
+    padding:10px;
+    border-radius:3px;
+    display: none;
+    max-width:50vw;
+}
+.aparece{
+    display: block;
+}
+
+.alert.alert-success{
+    display: none;
+}
+
