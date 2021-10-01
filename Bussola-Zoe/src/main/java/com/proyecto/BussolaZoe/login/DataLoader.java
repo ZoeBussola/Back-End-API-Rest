@@ -16,6 +16,7 @@ public class DataLoader implements ApplicationRunner {
         this.userRepository = userRepository;
     }
 
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -26,7 +27,7 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(new Usuario("Admin","Admin","Admin",
                 hashedPassword, AppUserRole.ADMIN));
         userRepository.save(new Usuario("User","User","User",
-                hashedPassword, AppUserRole.USER));
+                hashedPassword2, AppUserRole.USER));
 
     }
 }

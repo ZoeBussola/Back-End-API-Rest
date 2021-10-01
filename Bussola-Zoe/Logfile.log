@@ -157,3 +157,19 @@
 [2021-10-01 11:25:17] [ DEBUG] [OdontologoController:42] Búsqueda en la entidad Odontologos por el ID: 1
 [2021-10-01 11:25:27] [ DEBUG] [PacienteController:35] Busqueda de Todos los Pacientes
 [2021-10-01 11:25:27] [ DEBUG] [OdontologoController:36] Lectura general de la entidad Odontologos
+[2021-10-01 16:28:40] [ DEBUG] [OdontologoController:36] Lectura general de la entidad Odontologos
+[2021-10-01 16:28:40] [ DEBUG] [PacienteController:35] Busqueda de Todos los Pacientes
+[2021-10-01 16:33:27] [ DEBUG] [OdontologoController:36] Lectura general de la entidad Odontologos
+[2021-10-01 16:33:27] [ DEBUG] [PacienteController:35] Busqueda de Todos los Pacientes
+[2021-10-01 16:38:12] [ DEBUG] [PacienteController:41] Búsqueda Paciente ID: 1
+[2021-10-01 16:38:14] [ DEBUG] [OdontologoController:42] Búsqueda en la entidad Odontologos por el ID: 1
+[2021-10-01 16:56:35] [ DEBUG] [PacienteController:35] Busqueda de Todos los Pacientes
+[2021-10-01 16:56:35] [ DEBUG] [OdontologoController:36] Lectura general de la entidad Odontologos
+[2021-10-01 16:56:46] [ DEBUG] [PacienteController:41] Búsqueda Paciente ID: 1
+[2021-10-01 16:56:48] [ DEBUG] [OdontologoController:42] Búsqueda en la entidad Odontologos por el ID: 1
+[2021-10-01 16:56:58] [ DEBUG] [PacienteController:35] Busqueda de Todos los Pacientes
+[2021-10-01 16:56:58] [ DEBUG] [OdontologoController:36] Lectura general de la entidad Odontologos
+[2021-10-01 17:22:06] [ DEBUG] [PacienteController:35] Busqueda de Todos los Pacientes
+[2021-10-01 17:22:06] [ DEBUG] [OdontologoController:36] Lectura general de la entidad Odontologos
+[2021-10-01 17:22:21] [ DEBUG] [OdontologoController:36] Lectura general de la entidad Odontologos
+[2021-10-01 17:22:21] [ DEBUG] [PacienteController:35] Busqueda de Todos los Pacientes
