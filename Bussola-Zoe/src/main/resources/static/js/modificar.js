@@ -48,7 +48,7 @@ console.log(nombrePC_td)
              console.log(dataPc)
                fetch("http://localhost:8080/pacientes/",settings('PUT',dataPc))
                .then(response => response.json())
-               .then(data => {alert("Paciente Modificado"); window.location.pathname= '/listar.html'})
+               .then(data => {alert("Paciente Modificado");window.location.reload()})
          })
 
 
@@ -104,7 +104,7 @@ console.log(nombrePC_td)
              console.log(dataOD.domicilio)
                    fetch("http://localhost:8080/odontologos/",settings('PUT',dataOD))
                    .then(response => response.json())
-                   .then(data => {alert("Odontologo Modificado"); window.location.pathname= '/listar.html'})
+                   .then(data => {alert("Odontologo Modificado");window.location.reload()})
              })
       })
 

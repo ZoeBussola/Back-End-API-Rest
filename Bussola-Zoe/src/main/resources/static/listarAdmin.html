@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/listar.css">
+    <title>Document</title>
+</head>
+<body>
+<header>
+    <nav class="navbar-dark bg-dark">
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Agregar Usuarios</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h2>Turnos</h2>
+    <div class="tablaturnos">
+        <button type="button" class="btn btn-info agen"> +</button>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Paciente</th>
+                <th scope="col">Odontologo</th>
+                <th scope="col">Fecha</th>
+            </tr>
+            </thead>
+            <tbody class="tablaTurBody">
+            <!-- <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr> -->
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 formturno">
+            <form id="update_Turno_form">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput" class="form-label ">Ingresar ID Paciente</label>
+                        <input type="number" class="form-control inpIdPaciente" id="formGroupExampleInput" placeholder="ID Paciente">
+
+
+                        <div class="alert alert-success alePac" role="alert">
+                            Ingresado Paciente Nombre:
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-info " onclick="findPacienteTurBy()">Agregar</button>
+
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput2" class="form-label">Ingresar ID Odontologo</label>
+                        <input type="number" class="form-control inpIdOdontologo" id="formGroupExampleInput2" placeholder="ID Odontologo">
+
+
+                        <div class="alert alert-success aleOdo" role="alert">
+                            Ingresado Odontolodo Nombre:
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-info " onclick="findOdontologoTurBy()">Agregar</button>
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput" class="form-label">Seleccionar Fecha</label>
+                        <input type="date" class="form-control inpF" id="formGroupExampleInput" placeholder="Ej AAAA-MM-DD">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput" class="form-label">Seleccionar Hora</label>
+                        <input type="time" class="form-control inpH" id="formGroupExampleInput" placeholder="Ej HH:MM">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-info ">Agendar</button>
+            </form>
+            <div id="response" style="display:none; margin:10px">
+            </div>
+        </div>
+    </div>
+
+    <h2>Pacientes</h2>
+    <div class="tablaPacien" >
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">DNI</th>
+                <th scope="col" class="col-md-3">Fecha de Ingreso</th>
+                <th scope="col">Calle</th>
+                <th scope="col">Numero</th>
+                <th scope="col">Barrio</th>
+                <th scope="col">Provincia</th>
+            </tr>
+            </thead>
+            <tbody class="tablaPacbody" >
+            <!-- <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr> -->
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-sm-6" style="display: none;
+                            background-color:#e6fffa; padding:10px; border-radius:3px"
+             id="div_paciente_updating">
+            <form id="update_Paciente_form">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput" class="form-label ">ID</label>
+                        <input type="disable" class="form-control idPC" id="formGroupExampleInput" placeholder="Nombre">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput" class="form-label ">Nombre</label>
+                        <input type="text" class="form-control nombrePC" id="formGroupExampleInput" placeholder="Nombre">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput2" class="form-label">Apellido</label>
+                        <input type="text" class="form-control apellidoPC" id="formGroupExampleInput2" placeholder="Apellido">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput" class="form-label">Usuario</label>
+                        <input type="text" class="form-control usuarioPC" id="formGroupExampleInput" placeholder="Usuario">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput2" class="form-label">Password</label>
+                        <input type="password" class="form-control passwordPC" id="formGroupExampleInput2" placeholder="Password">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput" class="form-label">DNI</label>
+                        <input type="number" class="form-control dniPC" id="formGroupExampleInput" placeholder="DNI">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput" class="form-label">Fecha de Ingreso</label>
+                        <input type="date" class="form-control fechaPC" id="formGroupExampleInput" placeholder="Fecha de Ingreso">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="formGroupExampleInput2" class="form-label">Calle</label>
+                        <input type="text" class="form-control callePC" id="formGroupExampleInput2" placeholder="Calle">
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="formGroupExampleInput2" class="form-label">Numero</label>
+                        <input type="number" class="form-control numeroPC" id="formGroupExampleInput2" placeholder="Numero">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput2" class="form-label">Barrio</label>
+                        <input type="text" class="form-control barrioPC" id="formGroupExampleInput2" placeholder="Barrio">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput2" class="form-label">Provincia</label>
+                        <input type="text" class="form-control provinciaPC" id="formGroupExampleInput2" placeholder="Provincia">
+                    </div>
+
+                </div>
+                <button type="submit" class="btn btn-info">Modificar</button>
+            </form>
+            <div id="response" style="display:none; margin:10px">
+            </div>
+        </div>
+    </div>
+    <h2>Odontologos</h2>
+    <div class="tablaOdonto">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Matricula</th>
+                <th scope="col">Calle</th>
+                <th scope="col">Numero</th>
+                <th scope="col">Barrio</th>
+                <th scope="col">Provincia</th>
+            </tr>
+            </thead>
+            <tbody class="tablaOdobody">
+            <!-- <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr> -->
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-sm-6" style="display: none;
+                                background-color:#e6fffa; padding:10px; border-radius:3px"
+             id="div_Odonto_updating">
+            <form id="update_Odontologo_form">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput" class="form-label ">ID</label>
+                        <input type="disable" class="form-control idOD" id="formGroupExampleInput" placeholder="Nombre">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput" class="form-label">Nombre</label>
+                        <input type="text" class="form-control  nombreOD" id="formGroupExampleInput" placeholder="Nombre">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput2" class="form-label ">Apellido</label>
+                        <input type="text" class="form-control apellidoOD" id="formGroupExampleInput2" placeholder="Apellido">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput" class="form-label ">Usuario</label>
+                        <input type="text" class="form-control usuarioOD" id="formGroupExampleInput" placeholder="Usuario">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput2" class="form-label ">Password</label>
+                        <input type="password" class="form-control passwordOD" id="formGroupExampleInput2" placeholder="Password">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput" class="form-label ">Matricula</label>
+                        <input type="number" class="form-control matriculaOD" id="formGroupExampleInput" placeholder="Matricula">
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="formGroupExampleInput2" class="form-label ">Calle</label>
+                        <input type="text" class="form-control calleOD" id="formGroupExampleInput2" placeholder="Calle">
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="formGroupExampleInput2" class="form-label ">Numero</label>
+                        <input type="number" class="form-control numeroOD" id="formGroupExampleInput2" placeholder="Numero">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput2" class="form-label ">Barrio</label>
+                        <input type="text" class="form-control barrioOD" id="formGroupExampleInput2" placeholder="Barrio">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput2" class="form-label ">Provincia</label>
+                        <input type="text" class="form-control provinciaOD" id="formGroupExampleInput2" placeholder="Provincia">
+                    </div>
+
+
+                </div>
+                <button type="submit" class="btn btn-info">Modificar</button>
+            </form>
+            <div id="response" style="display:none; margin:10px">
+            </div>
+        </div>
+    </div>
+</main>
+<script src="js/listarAdmin.js"></script>
+<script src="js/agregarTurno.js"></script>
+<script src="js/modificar.js"></script>
+<script src="js/eliminar.js"></script>
+</body>
+</html>

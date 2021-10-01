@@ -1,20 +1,33 @@
 package com.proyecto.BussolaZoe.login;
+import com.proyecto.BussolaZoe.model.Usuario;
+import com.proyecto.BussolaZoe.repository.IUsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 
-/*
 @Component
 public class DataLoader implements ApplicationRunner {
-    private IUsuarioRepository usuarioRepository;
+    private IUsuarioRepository userRepository;
 
     @Autowired
-    public DataLoader(IUsuarioRepository usuarioRepository) {
-        this.usuarioRepository = usuarioRepository;
+    public DataLoader(IUsuarioRepository userRepository){
+        this.userRepository = userRepository;
     }
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String password = passwordEncoder.encode("password");
-        usuarioRepository.save(new Usuario("juan","perez","username",password,UsuarioRoles.ADMIN));
+        String hashedPassword = passwordEncoder.encode("Admin");
+        BCryptPasswordEncoder passwordEncoder2 = new BCryptPasswordEncoder();
+        String hashedPassword2 = passwordEncoder.encode("User");
+
+        userRepository.save(new Usuario("Admin","Admin","Admin",
+                hashedPassword, AppUserRole.ADMIN));
+        userRepository.save(new Usuario("User","User","User",
+                hashedPassword, AppUserRole.USER));
+
     }
 }
-*/
+

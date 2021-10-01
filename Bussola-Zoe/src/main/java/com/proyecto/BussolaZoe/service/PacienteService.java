@@ -51,10 +51,11 @@ public class PacienteService implements IPacienteService<Paciente> {
     @Override
     public Paciente update(Paciente paciente) {
         Paciente pacienteTmp = pacienteRepository.findById(paciente.getId()).get();
+        pacienteTmp.setNombre(paciente.getNombre());
+        pacienteTmp.setApellido(paciente.getApellido());
         pacienteTmp.setFechaIngreso(paciente.getFechaIngreso());
         pacienteTmp.setDNI(paciente.getDNI());
         pacienteTmp.setDomicilio(paciente.getDomicilio());
-        pacienteTmp.setUsuario(paciente.getUsuario());
         pacienteRepository.save(pacienteTmp);
         return pacienteTmp;
 

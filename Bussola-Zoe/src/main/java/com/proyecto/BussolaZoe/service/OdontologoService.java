@@ -53,8 +53,9 @@ public class OdontologoService implements IOdontologoService<Odontologo>{
     @Override
     public Odontologo updateOdontologo(Odontologo odontologoNew) {
         Odontologo odon = odontologoRepository.findById(odontologoNew.getId()).get();
+        odon.setNombre(odontologoNew.getNombre());
+        odon.setApellido(odontologoNew.getApellido());
         odon.setNumeroMatricula(odontologoNew.getNumeroMatricula());
-        odon.setUsuario(odontologoNew.getUsuario());
         odon.setDomicilio(odontologoNew.getDomicilio());
         odontologoRepository.save(odon);
         return odon;

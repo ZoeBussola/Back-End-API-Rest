@@ -1,7 +1,7 @@
 package com.proyecto.BussolaZoe.controller;
 
 
-import com.proyecto.BussolaZoe.login.UsuarioRoles;
+import com.proyecto.BussolaZoe.login.AppUserRole;
 import com.proyecto.BussolaZoe.model.Domicilio;
 import com.proyecto.BussolaZoe.model.Paciente;
 import com.proyecto.BussolaZoe.model.Usuario;
@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin
@@ -49,9 +50,9 @@ public class PacienteController {
 
     @PostMapping("/test")
     public Object testPaciente(){
-        Usuario us = new Usuario("Juan", "Peres", "usu", "134", UsuarioRoles.USER);
+        Usuario us = new Usuario("Juan", "Peres", "usu", "134", AppUserRole.USER);
         Domicilio dm = new Domicilio("Calle","666", "estelugar", "estaprovincia");
-        return pacienteService.save(new Paciente(us,4135486, LocalDateTime.now(),dm));
+        return pacienteService.save(new Paciente("Juana","Peres",4135486,dm));
     }
 
 

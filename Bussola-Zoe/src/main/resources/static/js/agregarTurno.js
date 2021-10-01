@@ -55,7 +55,7 @@ fromTur.addEventListener("submit",function (event) {
                 }
                 return response.json();
             })
-            .then(data => {alert("Turno Registrado"); window.location.pathname= '/listar.html'})
+            .then(data => {alert("Turno Registrado"); window.location.reload()})
             .catch(error => console.log(error))
 
         }
@@ -97,7 +97,7 @@ console.log(odontologoInfo)
           .then(data => {
         odontologoInfo =data
         aleOdo.style.display = 'block'
-       aleOdo.innerHTML += data.usuario.nombre+" "+data.usuario.apellido
+       aleOdo.innerHTML += data.nombre+" "+data.apellido
           }).catch(error => {
               console.log(error)
           })
@@ -134,7 +134,7 @@ console.log(odontologoInfo)
                  .then(data => {
                                       pacienteInfo= data
                                       alePac.style.display = 'block'
-                                      alePac.innerHTML += data.usuario.nombre+" " + data.usuario.apellido
+                                      alePac.innerHTML += data.nombre+" " + data.apellido
                                   }).catch(error => {
                      console.log(error)
                  })

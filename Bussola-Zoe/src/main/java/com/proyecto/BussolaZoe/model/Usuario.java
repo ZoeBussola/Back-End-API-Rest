@@ -1,101 +1,96 @@
 package com.proyecto.BussolaZoe.model;
 
 
-import com.proyecto.BussolaZoe.login.UsuarioRoles;
+import com.proyecto.BussolaZoe.login.AppUserRole;
 import com.sun.istack.NotNull;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.Collection;
+import java.util.Collections;
 
 
 @Entity
 @Table(name = "usuarios")
-public class Usuario{
+public class Usuario implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario_sequence")
-    @SequenceGenerator(name = "usuario_sequence", sequenceName = "usuario_sequence")
-    private Long id;
-
-    private String nombre;
-    private String apellido;
-
-    @NotNull
-    @Size(min = 2, max = 10, message = "El usuario debe contener entre 2 y 10 caracteres")
-    private String userName;
-
-    @NotNull
-    //@Size(min = 2, max = 10, message = "La contraseña debe contener entre 2 y 10 caracteres")
+    @SequenceGenerator(name = "user_sequence", sequenceName = "user_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
+    private long id;
+    private String name;
+    private String username;
+    private String email;
     private String password;
-
     @Enumerated(EnumType.STRING)
-    private UsuarioRoles usuarioRoles;
-
-
-    public Usuario(String nombre, String apellido, String userName, String password, UsuarioRoles usuarioRoles) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.userName = userName;
-        this.password = password;
-        this.usuarioRoles = usuarioRoles;
-    }
+    private AppUserRole appUserRole;
 
     public Usuario() {
     }
 
-    public Long getId() {
+    public Usuario(String name, String username, String email, String password, AppUserRole appUserRole) {
+        this.name = name;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.appUserRole = appUserRole;
+    }
+
+    public Collection<? extends GrantedAuthority> getAuthorities(){
+        SimpleGrantedAuthority grantedAuthority = new SimpleGrantedAuthority(appUserRole.name());
+        return Collections.singletonList(grantedAuthority);
+    }
+
+    @Override
+    public boolean isAccountNonExpired(){
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked(){
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired(){
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled(){
+        return true;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public UsuarioRoles getUsuarioRoles() {
-        return usuarioRoles;
-    }
-
-    public void setUsuarioRoles(UsuarioRoles usuarioRoles) {
-        this.usuarioRoles = usuarioRoles;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
-    public String toString() {
-        return "Usuario: " +
-                "id: " + id + "\n" +
-                "Nombre de usuario: '" + userName + "\n" +
-                "Contraseña: " + password;
+    public String getUsername() {
+        return username;
     }
 
-/*
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority grantedAuthority = new SimpleGrantedAuthority(usuarioRoles.name());
-        return Collections.singletonList(grantedAuthority);
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
@@ -103,31 +98,27 @@ public class Usuario{
         return password;
     }
 
-    @Override
-    public String getUsername() {
-        return userName;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public AppUserRole getAppUserRole() {
+        return appUserRole;
+    }
+
+    public void setAppUserRole(AppUserRole appUserRole) {
+        this.appUserRole = appUserRole;
     }
 
     @Override
-    public boolean isAccountNonExpired() {
-        return true;
+    public String toString() {
+        return "AppUser{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", appUserRole=" + appUserRole +
+                '}';
     }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
-
-
- */
 }

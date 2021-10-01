@@ -14,6 +14,6 @@ import java.util.Optional;
 @Transactional
 public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    @Query("SELECT u FROM Usuario u WHERE u.userName = ?1")
-    Optional<Usuario> finduserName(String userName);
+    @Query("SELECT u FROM Usuario u WHERE u.username = ?1")
+     Optional<Usuario> finduserName(String userName);
 }

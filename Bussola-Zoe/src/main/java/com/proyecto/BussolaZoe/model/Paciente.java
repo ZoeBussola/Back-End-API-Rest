@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "pacientes")
@@ -16,14 +17,12 @@ public class Paciente {
         @SequenceGenerator(name = "paciente_sequence", sequenceName = "paciente_sequence")
         private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+    private String nombre;
+    private String apellido;
         private Integer DNI;
 
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
-    private LocalDateTime fechaIngreso;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date fechaIngreso;
 
         @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
         @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -43,11 +42,11 @@ public class Paciente {
             this.DNI = DNI;
         }
 
-    public LocalDateTime getFechaIngreso() {
+    public Date getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(LocalDateTime fechaIngreso) {
+    public void setFechaIngreso(Date fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 
@@ -59,17 +58,25 @@ public class Paciente {
             this.domicilio = domicilio;
         }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
+    public String getApellido() {
+        return apellido;
+    }
 
-    public Paciente(Usuario usuario, Integer DNI, LocalDateTime fechaIngreso, Domicilio domicilio) {
-        this.usuario = usuario;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public Paciente(String nombre, String apellido, Integer DNI, Domicilio domicilio) {
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.DNI = DNI;
         this.fechaIngreso = fechaIngreso;
         this.domicilio = domicilio;

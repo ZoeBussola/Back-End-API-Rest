@@ -3,7 +3,7 @@ package com.proyecto.BussolaZoe.controller;
 
 
 
-import com.proyecto.BussolaZoe.login.UsuarioRoles;
+import com.proyecto.BussolaZoe.login.AppUserRole;
 import com.proyecto.BussolaZoe.model.Domicilio;
 import com.proyecto.BussolaZoe.model.Odontologo;
 import com.proyecto.BussolaZoe.model.Usuario;
@@ -51,9 +51,9 @@ public class OdontologoController {
 
     @PostMapping("/test")
     public Object testOdontologo(){
-        Usuario us = new Usuario("Juan", "Perez", "usu","pass", UsuarioRoles.ADMIN );
+        Usuario us = new Usuario("Juan", "Perez", "usu","pass", AppUserRole.ADMIN );
         Domicilio dm = new Domicilio("Calle","666", "lugar", "prov");
-        return odontologoService.saveOdontologo(new Odontologo(123456789,  us, dm,true));
+        return odontologoService.saveOdontologo(new Odontologo(58489,"Juan","perez",dm));
     }
 
 

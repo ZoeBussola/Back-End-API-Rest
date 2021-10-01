@@ -1,7 +1,7 @@
 package com.proyecto.BussolaZoe.controller;
 
 
-import com.proyecto.BussolaZoe.login.UsuarioRoles;
+import com.proyecto.BussolaZoe.login.AppUserRole;
 import com.proyecto.BussolaZoe.model.*;
 import com.proyecto.BussolaZoe.service.OdontologoService;
 import com.proyecto.BussolaZoe.service.PacienteService;
@@ -36,10 +36,10 @@ public class TurnoController {
 
     @PostMapping("/test")
     public Object turnotest(){
-       Usuario us = new Usuario("Tomas","apellido","usu","134", UsuarioRoles.USER);
+       Usuario us = new Usuario("Tomas","apellido","usu","134", AppUserRole.USER);
         Domicilio dm =new Domicilio("Calle","134","Este Lugar","Provincia");
-        Odontologo od = new Odontologo(1234,us,dm,true);
-        Paciente pc = new Paciente(us,4135486,LocalDateTime.now(),dm);
+        Odontologo od = new Odontologo(685416,"Juan","Perez",dm);
+        Paciente pc = new Paciente("Juana","Peres",4135486,dm);
         odontologoService.saveOdontologo(od);
         pacienteService.save(pc);
         return turnoService.save(new Turno(LocalDateTime.now(),od,pc));

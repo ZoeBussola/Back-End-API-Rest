@@ -48,13 +48,8 @@ formOdont.addEventListener('submit',(e)=>{
 
      let dataOdo  = {
             "numeroMatricula": matricula.value,
-            "admin": admin.checked,
-            "usuario": {
                 "nombre": nombreOD.value,
                 "apellido": apellidoOD.value,
-                "usuario": usuarioOD.value,
-                "password": passwordOD.value
-            },
             "domicilio": {
                 "calle": calleOD.value,
                 "numero": numerocalleOD.value,
@@ -97,13 +92,9 @@ formOdont.addEventListener('submit',(e)=>{
             e.preventDefault();
 
         let dataPc  = {
-            "usuario": {
+                   "fechaIngreso":frechaPC.value,
                 "nombre": nombrePC.value,
                 "apellido": apellidoPC.value,
-                "usuario": usuarioPC.value,
-                "password": passwordPC.value
-            },
-            "fechaIngreso": frechaPC.value,
             "domicilio": {
                 "calle": callePC.value,
                 "numero": numerocallePC.value,
@@ -112,7 +103,7 @@ formOdont.addEventListener('submit',(e)=>{
             },
             "dni": dniPC.value
         }
-        console.log(dataPc);
+        console.log("Paciente Agregado" + dataPc.fechaIngreso);
 
         fetch("http://localhost:8080/pacientes/save", settings("POST", dataPc))
         .then(response => {
