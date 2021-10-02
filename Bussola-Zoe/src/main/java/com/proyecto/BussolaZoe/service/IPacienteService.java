@@ -8,8 +8,6 @@ import java.util.Optional;
 
 public interface IPacienteService<T> {
 
-    /* ================ Métodos ================= */
-
     List<T> findAll();
     Optional<T> findPacienteById(Long id);
     T save(T t);

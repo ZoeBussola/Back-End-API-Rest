@@ -7,8 +7,6 @@ import java.util.Optional;
 
 public interface IOdontologoService<T> {
 
-    /* ================= Métodos ================= */
-
     List<Odontologo> findAllOdontologos();
     Optional<Odontologo> findOdontologoById(Long id);
     Odontologo saveOdontologo(Odontologo odontologo);

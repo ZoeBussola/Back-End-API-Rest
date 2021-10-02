@@ -14,8 +14,6 @@ window.addEventListener("load", ()=> {
         }
 
       let pacienteId_td = document.querySelector('.idPC').value;
-             let usuarioPC_td = document.querySelector(".usuarioPC").value;
-             let passwordPC_td = document.querySelector(".passwordPC").value;
              let nombrePC_td = document.querySelector(".nombrePC").value;
              let apellidoPC_td = document.querySelector(".apellidoPC").value;
              let dniPC_td = document.querySelector(".dniPC").value;
@@ -28,13 +26,8 @@ window.addEventListener("load", ()=> {
 console.log(nombrePC_td)
               let dataPc  = {
                          "id":pacienteId_td,
-                         "usuario": {
-                             "id":idUS,
                              "nombre": nombrePC_td,
                              "apellido": apellidoPC_td,
-                             "usuario": usuarioPC_td,
-                             "password": passwordPC_td
-                         },
                          "fechaIngreso": frechaPC_td,
                          "domicilio": {
                              "id":idDom,
@@ -69,8 +62,6 @@ console.log(nombrePC_td)
                  }
 
                  let odontologoId_tdO = document.querySelector(".idOD").value;
-                                 let usuarioPC_tdO = document.querySelector(".usuarioOD").value;
-                                 let passwordPC_tdO = document.querySelector(".passwordOD").value;
                                  let nombrePC_tdO = document.querySelector(".nombreOD").value;
                                  let apellidoPC_tdO = document.querySelector(".apellidoOD").value;
                                  let matriculaPC_tdO = document.querySelector(".matriculaOD").value;
@@ -82,14 +73,8 @@ console.log(nombrePC_td)
                  let dataOD  = {
                      "id":odontologoId_tdO,
                      "numeroMatricula": matriculaPC_tdO,
-                     "admin": isAdmin,
-                     "usuario": {
-                         "id":idUSOd,
                          "nombre": nombrePC_tdO,
                          "apellido": apellidoPC_tdO,
-                         "usuario": usuarioPC_tdO,
-                         "password": passwordPC_tdO
-                     },
                      "domicilio": {
                          "id":idDomOd,
                          "calle": callePC_tdO,
@@ -131,17 +116,14 @@ console.log(nombrePC_td)
                .then(data => {
                    let paciente = data;
                    idPC.value = paciente.id;
-                   nombrePC.value = paciente.usuario.nombre;
-                   apellidoPC.value = paciente.usuario.apellido;
-                   usuarioPC.value = paciente.usuario.usuario;
-                   passwordPC.value = paciente.usuario.password;
+                   nombrePC.value = paciente.nombre;
+                   apellidoPC.value = paciente.apellido;
                    dniPC.value = paciente.dni;
                    frechaPC.value = paciente.fechaIngreso;
                    callePC.value = paciente.domicilio.calle;
                    numerocallePC.value = paciente.domicilio.numero;
                    barrioPC.value = paciente.domicilio.localidad;
                    provinciaPC.value = paciente.domicilio.provincia;
-                   idUS = paciente.usuario.id;
                    idDom = paciente.domicilio.id;
                    document.querySelector('#div_paciente_updating').style.display = "block";
                }).catch(error => {
@@ -178,17 +160,14 @@ console.log(nombrePC_td)
               let odontologo = data;
 
               idOD.value = odontologo.id;
-              nombreOD.value = odontologo.usuario.nombre;
-              apellidoOD.value = odontologo.usuario.apellido;
-              usuarioOD.value = odontologo.usuario.usuario;
-              passwordOD.value = odontologo.usuario.password;
+              nombreOD.value = odontologo.nombre;
+              apellidoOD.value = odontologo.apellido;
               matricula.value = odontologo.numeroMatricula;
               calleOD.value = odontologo.domicilio.calle;
               numerocalleOD.value = odontologo.domicilio.numero;
               barrioOD.value = odontologo.domicilio.localidad;
               provinciaOD.value = odontologo.domicilio.provincia;
               isAdmin = odontologo.admin
-              idUSOd = odontologo.usuario.id;
               idDomOd = odontologo.domicilio.id;
               document.querySelector('#div_Odonto_updating').style.display = "block";
           }).catch(error => {

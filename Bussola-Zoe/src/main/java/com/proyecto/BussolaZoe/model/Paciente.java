@@ -34,7 +34,11 @@ public class Paciente {
         return id;
     }
 
-        public Integer getDNI() {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getDNI() {
             return DNI;
         }
 
